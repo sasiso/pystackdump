@@ -52,12 +52,10 @@ class Writer:
     def write_frames_information(self):
 
         self.write("Current frame information")
-
-        cf = inspect.currentframe()
-        traceback.print_stack(cf)
         for thread, frame in sys._current_frames().items():
             self.print_thread_identity(thread)
             traceback.print_stack(frame)
+            self.write("____________________________________________________")
 
     def dump(self):
         self.write("____________________Stack dump of python_________________")
